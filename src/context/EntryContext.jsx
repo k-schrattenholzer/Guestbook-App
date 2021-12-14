@@ -14,8 +14,15 @@ const EntryProvider = ({ children }) => {
 }
 
 // Create custom hook
+const useEntries = () => {
+  const context = useContext(EntryContext)
 
- // `context` will be undefined when using this custom hook
-  // outside of the provider, so we throw an error 
+  // `context` will be undefined when using this custom hook
+   // outside of the provider, so we throw an error 
+  if (context === undefined) {
+    throw new Error('useEntries needs to be used within an EntryContext Provider')
+  }
+}
 
-  // Export the provider component and the custom hook
+// Export the provider component and the custom hook
+export { EntryProvider, useEntries}
