@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <div>
-      Header
+      <p>It's a lil Header</p>
     </div>
   )
 }

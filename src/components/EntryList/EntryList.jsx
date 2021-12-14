@@ -5,7 +5,7 @@
 export default function EntryList() {
   return (
     <div>
-      
+          <p>It's an Entry List</p>
     </div>
   )
 }

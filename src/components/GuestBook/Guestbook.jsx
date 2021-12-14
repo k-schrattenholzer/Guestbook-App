@@ -9,7 +9,7 @@
 export default function Guestbook() {
   return (
     <div>
-      GuestBook Component
+        <p>GuestBook Component</p>
     </div>
   )
 }
