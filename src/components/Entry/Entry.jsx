@@ -1,8 +1,11 @@
 
-export default function Entry() {
+export default function Entry({ entry: {name, message } }) {
   return (
-    <div>
-            <p>It's a lil Entry</p>
+    <div className="entry-container">
+      <div className="entry-el">
+        <h3>{name}</h3>
+        <p>{message}</p>
+      </div>
     </div>
   )
 }

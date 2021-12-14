@@ -1,3 +1,10 @@
+export default function Guestbook() {
+  return (
+    <div>
+        <p>GuestBook Component</p>
+    </div>
+  )
+}
 // TO DOS
 // import useEntries and useUser
 // destructure state and setState before render
@@ -6,10 +13,3 @@
 // and a handle submit that updates the guests name in state
 // declare the HTML for the guest name input as a variable, and conditionally show 
 
-export default function Guestbook() {
-  return (
-    <div>
-        <p>GuestBook Component</p>
-    </div>
-  )
-}
