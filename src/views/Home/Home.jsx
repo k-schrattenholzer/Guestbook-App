@@ -14,5 +14,5 @@ const Home = () => {
 export default Home;
 
 // TO DO 
-// will import entrylist and guestbook, as well as entry provider
+// will import entrylist and guestbook & entry provider
 // declare a component that returns the guest book and list wrapped in the entryprovider
