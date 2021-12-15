@@ -22,6 +22,7 @@ const useEntries = () => {
   if (context === undefined) {
     throw new Error('useEntries needs to be used within an EntryContext Provider')
   }
+  return context
 }
 
 // Export the provider component and the custom hook
