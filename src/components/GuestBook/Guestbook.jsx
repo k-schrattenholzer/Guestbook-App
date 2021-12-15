@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { useEntries } from '../../context/EntryContext';
+// import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
 import './GuestBook.css';
 
 export default function Guestbook() {
   const [name, setName] = useState('');
   const [guestEntry, setGuestEntry] = useState('');
-  const { entries, setEntries } = useEntries();
+  // const { entries, setEntries } = useEntries();
   const { user, setUser } = useUser();
 
   const guestNameInput = (
@@ -26,6 +26,21 @@ export default function Guestbook() {
   const guestBookMessage = user
     ? `So interesting, ${name}.`
     : `What's your deal?`;
+
+  function updateGuestName() {
+    if (!guestEntry) return
+
+    setUser(name)
+
+    setEntries([...entries, { name, message: guestEntry }])
+
+    setGuestEntry('')
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateGuestName();
+  }
 
   return (
     <div>

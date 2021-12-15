@@ -1,16 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { UserProvider } from './context/UserContext.jsx'
 import App from './App'
 
-// TO DO
-// import provider, and wrap it around app 
 
 ReactDOM.render(
   <React.StrictMode>
-      <App />
+      <UserProvider>
+        <App />
+      </UserProvider>
   </React.StrictMode>,
   document.getElementById('root')
-)
-
+  )
+  
+  // TO DO
+  // import provider, and wrap it around app 
 
 

@@ -1,7 +1,7 @@
 import { useContext, createContext, useState } from 'react'
 
 // Create the Context
-const userContext = createContext();
+const UserContext = createContext();
 
 // Create the UserProvider component
 const UserProvider = ({ children }) => {
@@ -11,7 +11,7 @@ const UserProvider = ({ children }) => {
 }
 // Create custom hook
 const useUser = () => {
-  const context = useContext(userContext);
+  const context = useContext(UserContext);
 
    // `context` will be undefined when using this custom hook
     // outside of the provider, so we throw an error 
