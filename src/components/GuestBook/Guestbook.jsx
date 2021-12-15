@@ -11,7 +11,9 @@ export default function Guestbook() {
 
   const guestNameInput = (
     <div>
-      <label htmlFor="guestName">Visitor Name</label>
+      <label htmlFor="guestName">
+        ¿quién eres?
+      </label>
       <input
         className="guestNameInput"
         id="guestName"
@@ -24,7 +26,7 @@ export default function Guestbook() {
   );
 
   const guestBookMessage = user
-    ? `So interesting, ${name}.`
+    ? `So interesting, ${name}. Elaborate...`
     : `What's your deal?`;
 
   function updateGuestName() {
@@ -49,13 +51,15 @@ export default function Guestbook() {
         {user ? null : guestNameInput}
         <div>
           <div>
-            <label htmlFor="guestEntry">Guest Entry</label>
+            <label htmlFor="guestEntry">
+              whaddya got noodlin around up there?
+              </label>
           </div>
           <div>
             <textarea
               id="guestEntry"
               value={guestEntry}
-              placeholder="whaddya got noodlin around up there?"
+              placeholder="tell us everything..."
               onChange={(e) => setGuestEntry(e.target.value)}
             />
           </div>

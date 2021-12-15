@@ -1,11 +1,15 @@
+import React from 'react';
 import './App.css'
 import Home from './views/Home/Home'
 import Layout from './views/Layout/Layout'
 
-export default function App() {
+
+function App() {
   return (
     <Layout>
       <Home />
     </Layout>
   );
 }
+
+export default App;

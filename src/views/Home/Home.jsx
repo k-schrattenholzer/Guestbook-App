@@ -1,6 +1,7 @@
 import EntryList from '../../components/EntryList/EntryList'
 import Guestbook from '../../components/GuestBook/Guestbook'
 import { EntryProvider } from '../../context/EntryContext'
+import React from 'react';
 
 const Home = () => {
   return (
