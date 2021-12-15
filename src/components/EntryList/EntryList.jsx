@@ -1,11 +1,24 @@
-// TO DO
-// will import Entry, and useEntries
-//before the return, destructure entries from useEntries
+import { useEntries } from "../../context/EntryContext.jsx"
+import Entry from '../Entry/Entry.jsx'
 
 export default function EntryList() {
+  const { entries } = useEntries()
+
   return (
     <div>
-          <p>It's an Entry List</p>
+        <ul>
+          {entries.map((entry) => {
+            return (
+              <li key={`${entry.message}-${entry.name}`}>
+                <Entry entry={entry}/>
+              </li>
+            )
+          })}
+        </ul>
     </div>
   )
 }
+
+// TO DO
+// will import Entry, and useEntries
+//before the return, destructure entries from useEntries

@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
-import './GuestBook.css'
+import './GuestBook.css';
 
 export default function Guestbook() {
-
   const [name, setName] = useState('');
   const [guestEntry, setGuestEntry] = useState('');
   const { entries, setEntries } = useEntries();
@@ -14,16 +13,19 @@ export default function Guestbook() {
     <div>
       <label htmlFor="guestName">Visitor Name</label>
       <input
-        className='guestNameInput'
-        id='guestName'
-        placeholder='what do they call ye'
+        className="guestNameInput"
+        id="guestName"
+        placeholder="what do they call ye"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        type="text" />
+        type="text"
+      />
     </div>
-  )
+  );
 
-  const guestBookMessage = user ? `So interesting, ${name}.` : `What's your deal?`
+  const guestBookMessage = user
+    ? `So interesting, ${name}.`
+    : `What's your deal?`;
 
   return (
     <div>
@@ -31,7 +33,32 @@ export default function Guestbook() {
       <form onSubmit={handleSubmit}>
         {user ? null : guestNameInput}
         <div>
-          <label htmlFor="guestEntry">Guest Entry</label>
+          <div>
+            <label htmlFor="guestEntry">Guest Entry</label>
+          </div>
+          <div>
+            <textarea
+              id="guestEntry"
+              value={guestEntry}
+              placeholder="whaddya got noodlin around up there?"
+              onChange={(e) => setGuestEntry(e.target.value)}
+            />
+          </div>
+        </div>
+        <div>
+          <button type="submit">
+            stick it on the wall
+          </button>
+          {user && (
+            <button
+              type='button'
+              onClick={() => {
+                setUser('');
+                setName('');
+              }}>
+              if you're not {user}, you gotta go
+            </button>
+          )}
         </div>
       </form>
     </div>
