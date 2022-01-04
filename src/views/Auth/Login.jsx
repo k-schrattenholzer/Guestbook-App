@@ -19,7 +19,7 @@ export default function Login() {
     e.preventDefault();
     const userLoggedIn = auth.login(formState.username, formState.password);
 
-    return !loginWasSuccessful ?
+    return !userLoggedIn ?
     setError("login unsuccessful bb, try again?") : history.replace('/')  
   }
 

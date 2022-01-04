@@ -4,63 +4,36 @@ import { useUser } from '../../context/UserContext';
 import './GuestBook.css';
 
 export default function Guestbook() {
-  const [name, setName] = useState('');
-  const [guestEntry, setGuestEntry] = useState('');
+  // const [name, setName] = useState('');
+  const [userEntry, setUserEntry] = useState('');
   const { entries, setEntries } = useEntries();
   const { user, setUser } = useUser();
 
-  const guestNameInput = (
-    <div>
-      <label htmlFor="guestName">
-        ¿quién eres?
-      </label>
-      <input
-        className="guestNameInput"
-        id="guestName"
-        placeholder="what do they call ye"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        type="text"
-      />
-    </div>
-  );
-
   const guestBookMessage = user
-    ? `So interesting, ${name}. Elaborate...`
+    ? `So interesting. Elaborate...`
     : `What's your deal?`;
-
-  function updateGuestName() {
-    if (!guestEntry) return
-
-    setUser(name)
-
-    setEntries((prev)=>[...prev, { name, message: guestEntry }])
-
-    setGuestEntry('')
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateGuestName();
+    setEntries((prev)=>[...prev, userEntry]);
   }
 
   return (
     <div>
       <h1>{guestBookMessage}</h1>
       <form onSubmit={handleSubmit}>
-        {user ? null : guestNameInput}
         <div>
           <div>
-            <label htmlFor="guestEntry">
+            <label htmlFor="userEntry">
               whaddya got noodlin around up there?
               </label>
           </div>
           <div>
             <textarea
-              id="guestEntry"
-              value={guestEntry}
+              id="userEntry"
+              value={userEntry}
               placeholder="tell us everything..."
-              onChange={(e) => setGuestEntry(e.target.value)}
+              onChange={(e) => setUserEntry(e.target.value)}
             />
           </div>
         </div>
@@ -83,10 +56,4 @@ export default function Guestbook() {
     </div>
   );
 }
-// TO DOS
-// import useEntries and useUser
-// destructure state and setState before render
-// the name and the setName, and guestEntry and setGuestEntry will be kept locally
-//will need an update guest name function
-// and a handle submit that updates the guests name in state
-// declare the HTML for the guest name input as a variable, and conditionally show
+

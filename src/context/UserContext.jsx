@@ -11,7 +11,7 @@ const UserProvider = ({ children }) => {
     const loginSuccessful =
       username === process.env.AUTH_EMAIL &&
       password === process.env.AUTH_PASSWORD;
-    if (loginSuccessful) setUser({ username });
+    if (loginSuccessful) setUser( username );
     return loginSuccessful;
   };
   
