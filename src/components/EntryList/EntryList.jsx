@@ -3,13 +3,14 @@ import Entry from '../Entry/Entry.jsx'
 
 export default function EntryList() {
   const { entries } = useEntries()
+  console.log(entries);
 
   return (
     <div>
         <ul>
           {entries.map((entry) => {
             return (
-              <li key={`${entry.message}-${entry.name}`}>
+              <li key={`${entry}`}>
                 <Entry entry={entry}/>
               </li>
             )
