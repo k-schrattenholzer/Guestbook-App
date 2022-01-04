@@ -61,7 +61,7 @@ export default function Login() {
       Sign In
     </button>
   </form>
-  <p className="text-center text-red-500 font-bold">Error message goes here</p>
+  <p className="text-center text-red-500 font-bold">{error}</p>
 </fieldset>
   );
 }
