@@ -7,7 +7,20 @@ const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState('');
 
-  return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>
+  const login = (email, password) => {
+    const loginSuccessful =
+      email === process.env.AUTH_EMAIL &&
+      password === process.env.AUTH_PASSWORD;
+    if (loginSuccessful) setUser({ email });
+    return loginSuccessful;
+  };
+  
+  const logout = (callback) => {
+    setUser(null);
+    callback();
+  };
+
+  return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>
 }
 // Create custom hook
 const useUser = () => {
@@ -20,6 +33,8 @@ const useUser = () => {
   }
   return context
 }
+
+
 
   // Export the provider component and the custom hook
 export { UserProvider, useUser }

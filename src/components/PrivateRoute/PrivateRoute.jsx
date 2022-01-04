@@ -2,7 +2,7 @@ import { Redirect, Route } from 'react-router-dom'
 import { useUser } from '../../context/UserContext'
 
 export function PrivateRoute({ children, ...rest }) {
-  let auth = useAuth();
+  const { user } = useUser();
   return(
     <Route 
       {...rest}
