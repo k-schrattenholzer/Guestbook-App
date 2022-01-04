@@ -3,11 +3,12 @@ import { useUser } from '../../context/UserContext'
 
 export function PrivateRoute({ children, ...rest }) {
   const { user } = useUser();
+
   return(
     <Route 
       {...rest}
       render={({ location }) => 
-        auth.user ? (
+        user ? (
           children
         ) : (
           <Redirect
