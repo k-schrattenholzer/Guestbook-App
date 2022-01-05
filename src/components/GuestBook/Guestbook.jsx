@@ -1,13 +1,19 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useEntries } from '../../context/EntryContext';
 import { useUser } from '../../context/UserContext';
+import { useAuth } from '../../hooks/useAuth.js';
 import './GuestBook.css';
 
 export default function Guestbook() {
-  // const [name, setName] = useState('');
+
   const [userEntry, setUserEntry] = useState('');
   const { entries, setEntries } = useEntries();
-  const { user, setUser } = useUser();
+  const history = useHistory();
+  const { user, logout } = useAuth();
+
+  console.log(history);
+
 
   const guestBookMessage = user
     ? `So interesting. Elaborate...`
@@ -16,6 +22,11 @@ export default function Guestbook() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setEntries((prev)=>[...prev, userEntry]);
+  }
+
+  const handleLogout = () => {
+    logout(() => history.push('/'))
+    ;
   }
 
   return (
@@ -41,18 +52,17 @@ export default function Guestbook() {
           <button type="submit">
             stick it on the wall
           </button>
-          {user && (
-            <button
-              type='button'
-              onClick={() => {
-                setUser('');
-                setName('');
-              }}>
-              if you're not {user}, you gotta go
-            </button>
-          )}
         </div>
       </form>
+      {user && (
+            <button
+              type="button"
+              className="signOut hover:text-red-400 transition-all"
+              onClick={handleLogout}
+            >
+              Not {user} ❓
+            </button>
+          )}
     </div>
   );
 }

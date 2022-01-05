@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { userContext } from '../context/UserContext';
+import { userContext } from '../context/UserContext.jsx';
 
 /**
  * This custom hook will return an userContext, which consists of the `user` object (which is an object with an `username` property), the `login` function (which takes a user's username and password), and the `logout` function.

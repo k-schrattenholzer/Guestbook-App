@@ -3,7 +3,6 @@ import Entry from '../Entry/Entry.jsx'
 
 export default function EntryList() {
   const { entries } = useEntries()
-  console.log(entries);
 
   return (
     <div>
