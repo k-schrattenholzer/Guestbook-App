@@ -10,6 +10,6 @@ test('renders App', () => {
     <UserProvider>
     <App />
   </UserProvider> )
-  const linkElement = screen.getByLabelText(/¿quién eres?/i)
+  const linkElement = screen.getByLabelText(/Username/i)
   expect(linkElement).toBeInTheDocument()
 })
