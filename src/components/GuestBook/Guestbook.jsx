@@ -10,9 +10,6 @@ export default function Guestbook() {
   const history = useHistory();
   const { user, logout } = useAuth();
 
-  console.log(history);
-
-
   const guestBookMessage = user
     ? `So interesting. Elaborate...`
     : `What's your deal?`;
