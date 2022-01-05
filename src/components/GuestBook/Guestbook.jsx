@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useEntries } from '../../context/EntryContext';
-import { useUser } from '../../context/UserContext';
 import { useAuth } from '../../hooks/useAuth.js';
-import styles from './GuestBook.css';
 
 export default function Guestbook() {
 
