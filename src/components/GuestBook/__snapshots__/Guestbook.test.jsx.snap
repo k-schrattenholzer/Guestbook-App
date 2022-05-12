@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the guestbook, when a user is logged in 1`] = `
+<div>
+  <div>
+    <h1>
+      What's your deal?
+    </h1>
+    <form>
+      <div>
+        <div>
+          <label
+            for="userEntry"
+          >
+            whaddya got noodlin around up there?
+          </label>
+        </div>
+        <div>
+          <textarea
+            id="userEntry"
+            placeholder="tell us everything..."
+          />
+        </div>
+      </div>
+      <div>
+        <button
+          type="submit"
+        >
+          stick it on the wall
+        </button>
+      </div>
+    </form>
+    
+  </div>
+</div>
+`;

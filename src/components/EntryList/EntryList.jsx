@@ -9,7 +9,7 @@ export default function EntryList() {
         <ul>
           {entries.map((entry) => {
             return (
-              <li key={`${entry.message}-${entry.name}`}>
+              <li key={`${entry}`}>
                 <Entry entry={entry}/>
               </li>
             )
